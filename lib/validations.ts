@@ -33,10 +33,12 @@ export const giftSchema = z.object({
     .transform((value) => (value === "" ? undefined : value)),
 });
 
+export const MAX_GIFTS = 3;
+
 const giftsField = z
   .array(giftSchema)
   .min(1, "Dodaj co najmniej jeden prezent")
-  .max(20, "Maksymalnie 20 prezentów");
+  .max(MAX_GIFTS, `Maksymalnie ${MAX_GIFTS} prezenty`);
 
 export const createWishlistSchema = z.object({
   firstName: nameField("Imię"),
