@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Wishlist {
+  id             String    @id @default(cuid())
+  firstName      String
+  lastName       String
+  normalizedName String    @unique
+  pinHash        String
+  failedAttempts Int       @default(0)
+  lockedUntil    DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  gifts          Gift[]
+}
+
+model Gift {
+  id         String   @id @default(cuid())
+  name       String
+  url        String?
+  wishlistId String
+  wishlist   Wishlist @relation(fields: [wishlistId], references: [id], onDelete: Cascade)
+
+  @@index([wishlistId])
+}
