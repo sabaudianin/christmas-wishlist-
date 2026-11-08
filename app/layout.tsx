@@ -2,15 +2,18 @@ import type { Metadata } from "next";
 import { Fraunces, Nunito } from "next/font/google";
 import { Lights } from "@/components/lights";
 import { Snow } from "../components/snow";
+import { Footer } from "@/components/footer";
 import "./globals.css";
+import { DM_Serif_Display, Plus_Jakarta_Sans } from "next/font/google";
 
-const nunito = Nunito({
-  variable: "--font-nunito",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin", "latin-ext"],
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const dmSerif = DM_Serif_Display({
+  variable: "--font-dm-serif",
+  weight: "400",
   subsets: ["latin", "latin-ext"],
 });
 
@@ -27,10 +30,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pl">
-      <body className={`${nunito.variable} ${fraunces.variable} antialiased`}>
+      <body className={`${jakarta.variable} ${dmSerif.variable} antialiased`}>
         <Lights />
         <Snow />
-        <div className="relative z-10">{children}</div>
+        <div className="relative z-10 flex min-h-screen flex-col">
+          <div className="flex-1">{children}</div>
+          <Footer />
+        </div>
       </body>
     </html>
   );

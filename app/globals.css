@@ -18,8 +18,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-nunito), system-ui, sans-serif;
-  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+  --font-display: var(--font-dm-serif), Georgia, serif;
 }
 
 body {

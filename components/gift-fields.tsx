@@ -6,7 +6,7 @@ import { MAX_GIFTS } from "@/lib/validations";
 export type GiftRow = { id: number; name: string; url: string };
 
 export const inputClass =
-  "w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-600 focus:ring-2 focus:ring-red-200";
+  "w-full rounded-lg border border-neutral-300  px-3 py-2 text-sm outline-none focus:border-red-600 focus:ring-2 focus:ring-red-200";
 
 export function toGiftRows(
   gifts: { name: string; url: string | null }[],
@@ -70,7 +70,7 @@ export function GiftFields({ legend, gifts, onChange }: Props) {
             onClick={() => remove(gift.id)}
             disabled={gifts.length === 1}
             aria-label={`Usuń prezent ${index + 1}`}
-            className="rounded-lg border border-neutral-300 px-3 py-2 text-sm text-neutral-600 hover:bg-neutral-50 disabled:opacity-40"
+            className="rounded-lg border border-neutral-300 px-3 py-2 text-sm hover:bg-red-500 disabled:opacity-40"
           >
             ✕
           </button>
@@ -81,7 +81,7 @@ export function GiftFields({ legend, gifts, onChange }: Props) {
         type="button"
         onClick={add}
         disabled={gifts.length >= MAX_GIFTS}
-        className="text-sm font-medium text-red-700 hover:underline disabled:opacity-50"
+        className="text-sm font-medium p-1 hover:underline disabled:opacity-50"
       >
         + Dodaj kolejny prezent
       </button>

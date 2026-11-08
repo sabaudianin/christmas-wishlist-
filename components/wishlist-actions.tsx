@@ -110,18 +110,18 @@ export function WishlistActions({ wishlist }: Props) {
 
   if (mode === "idle") {
     return (
-      <div className="mt-4 flex gap-4 border-t border-neutral-100 pt-3 text-sm">
+      <div className="mt-4 flex justify-center gap-4 border-t border-neutral-100 pt-3 text-sm text-white">
         <button
           type="button"
           onClick={() => open("unlock")}
-          className="font-medium text-neutral-600 hover:text-red-700"
+          className="font-medium  hover:text-orange-300 duration-100"
         >
           Edytuj
         </button>
         <button
           type="button"
           onClick={() => open("delete")}
-          className="font-medium text-neutral-600 hover:text-red-700"
+          className="font-medium  hover:text-red-600 duration-100"
         >
           Usuń
         </button>
@@ -193,9 +193,9 @@ export function WishlistActions({ wishlist }: Props) {
 
       {mode === "delete" && (
         <form onSubmit={handleDelete} className="space-y-3">
-          <p className="text-sm text-neutral-700">
+          <p className="text-sm ">
             Usunąć listę: {wishlist.firstName} {wishlist.lastName}? Tego nie
-            można cofnąć. Podaj PIN (lub hasło administratora).
+            można cofnąć. Podaj PIN .
           </p>
           <input
             type="password"

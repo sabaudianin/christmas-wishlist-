@@ -1,19 +1,20 @@
 import { Suspense } from "react";
-import { CreateWishlistForm } from "@/components/create-wishlist-form";
+
 import { FestiveHeader } from "@/components/festive-header";
 import { WishlistCard } from "@/components/wishlist-card";
 import { getWishlists } from "@/lib/wishlists";
+import { AddWishlistDialog } from "@/components/add-wishlist-dialog";
 
 export default function Home() {
   return (
     <main className="mx-auto max-w-5xl px-4 pb-16 sm:px-6">
       <FestiveHeader />
 
-      <CreateWishlistForm />
+      <AddWishlistDialog />
 
-      <section className="mt-10">
-        <h2 className="mb-4 font-display text-2xl text-gold-300">
-          Listy życzeń
+      <section className="mt-10 w-full text-center">
+        <h2 className="mb-4 font-display text-3xl text-gold-300">
+          Lista życzeń
         </h2>
         <Suspense fallback={<ListSkeleton />}>
           <WishlistList />
