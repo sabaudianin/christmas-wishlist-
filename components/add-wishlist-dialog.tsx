@@ -19,7 +19,10 @@ export function AddWishlistDialog() {
     <>
       <div className="mt-10 flex justify-center">
         <button type="button" onClick={open} className={heroButtonClass}>
-          <span aria-hidden>🎁</span> Dodaj swój prezent
+          <span aria-hidden className="animate-pulse">
+            🎁
+          </span>{" "}
+          Dodaj swój prezent
         </button>
       </div>
 
