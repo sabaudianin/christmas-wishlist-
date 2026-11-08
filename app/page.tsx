@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-
+import { connection } from "next/server";
 import { FestiveHeader } from "@/components/festive-header";
 import { WishlistCard } from "@/components/wishlist-card";
 import { getWishlists } from "@/lib/wishlists";
@@ -25,6 +25,7 @@ export default function Home() {
 }
 
 async function WishlistList() {
+  await connection();
   const wishlists = await getWishlists();
 
   if (wishlists.length === 0) {
